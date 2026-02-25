@@ -1,0 +1,18 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <p>© {currentYear} Adrián Clemente - Construido con Astro .</p>
+</footer>
+
+<style>
+  .footer {
+    margin-top: 5rem;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--muted-text);
+    border-top: 1px solid var(--card-border);
+  }
+</style>

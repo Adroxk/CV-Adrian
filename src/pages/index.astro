@@ -1,11 +1,79 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/hero.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/project.js";
 ---
 
 <Layout>
-	<Welcome />
+  <Hero
+    name="Adrián Clemente"
+    role="Frontend Developer | Astro & JavaScript"
+    description="Desarrollador frontend enfocado en rendimiento, arquitectura modular y experiencias limpias. Construyo interfaces rápidas y mantenibles con Astro y JavaScript."
+  />
+
+
+<section class="container">
+  <SectionTitle title="Skills" />
+
+  <div class="skills">
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>Astro</span>
+    <span>Git</span>
+  </div>
+</section>
+
+<section class="container">
+  <SectionTitle title="Proyectos" />
+
+  <div class="projects">
+    {projects.map(function(project) {
+      return <ProjectCard {...project} />;
+    })}
+  </div>
+</section>
+
+<section class="container">
+  <SectionTitle title="Contacto" />
+
+  <div class="contact">
+    <p>Email: <a href="mailto:adroxk@gmail.com">adroxk@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/adroxk" target="_blank">github.com/adroxk</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/adroxk" target="_blank">linkedin.com/in/adroxk</a></p>
+  </div>
+</section>
+
+<style>
+  .container {
+    max-width: 680px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .skills span {
+    background: var(--tag-bg);
+    color: var(--text-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+  }
+    .projects {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .contact p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+</style>
 </Layout>
